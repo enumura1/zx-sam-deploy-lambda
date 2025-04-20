@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  HelloPythonFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: hello.lambda_handler
+      Runtime: python3.13
+      Architectures:
+        - x86_64
+      Timeout: 10
+      MemorySize: 128
+
+Outputs:
+  HelloPythonFunction:
+    Description: "Python Lambda Function ARN"
+    Value: !GetAtt HelloPythonFunction.Arn
